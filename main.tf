@@ -523,8 +523,8 @@ resource "intersight_bios_policy" "bios" {
   sha1pcr_bank                    = var.sha1pcr_bank                    # SHA-1 PCR Bank
   sha256pcr_bank                  = var.sha256pcr_bank                  # SHA256 PCR Bank
   tpm_control = length(                                                 # Trusted Platform Module State
-    regexall("_tpm", each.value.bios_template)
-  ) > 0 ? "enabled" : each.value.tpm_control
+    regexall("_tpm", var.bios_template)
+  ) > 0 ? "enabled" : var.tpm_control
   tpm_pending_operation = var.tpm_pending_operation # TPM Pending Operation
   tpm_ppi_required      = var.tpm_ppi_required      # TPM Minimal Physical Presence
   txt_support           = var.txt_support           # Intel Trusted Execution Technology Support

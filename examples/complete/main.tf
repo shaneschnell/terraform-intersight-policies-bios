@@ -31,4 +31,3 @@ module "m6_bios_policy" {
   serial_port_aenable = "enabled"
   terminal_type       = "vt100"
 }
-

@@ -1,5 +1,5 @@
 <!-- BEGIN_TF_DOCS -->
-# Fibre-Channel Pool Example
+# BIOS Policy Example
 
 To run this example you need to execute:
 
@@ -13,23 +13,39 @@ Note that this example will create resources. Resources can be destroyed with `t
 
 ### main.tf
 ```hcl
-module "wwpn_pool" {
-  source  = "scotttyso/pools-fc/intersight"
+module "m5_bios_policy" {
+  source  = "terraform-cisco-modules/policies-bios/intersight"
   version = ">= 1.0.1"
 
-  assignment_order = "sequential"
-  description      = "Demo WWPN Pool"
-  id_blocks = [
-    {
-      from = "0:00:00:25:B5:00:00:00"
-      size = 1000
-    }
-  ]
-  name         = "default"
-  organization = "default"
-  pool_purpose = "WWPN"
+  bios_template = "M5_Virtualization"
+  description   = "default M5 BIOS Policy."
+  name          = "default"
+  organization  = "default"
+  # BIOS Customization
+  baud_rate           = "115200"
+  console_redirection = "serial-port-a"
+  execute_disable_bit = "disabled"
+  lv_ddr_mode         = "auto"
+  serial_port_aenable = "enabled"
+  terminal_type       = "vt100"
 }
 
+module "m6_bios_policy" {
+  source  = "terraform-cisco-modules/policies-bios/intersight"
+  version = ">= 1.0.1"
+
+  bios_template = "M6_Virtualization_tpm"
+  description   = "default M6 BIOS Policy."
+  name          = "default"
+  organization  = "default"
+  # BIOS Customization
+  baud_rate           = "115200"
+  console_redirection = "serial-port-a"
+  execute_disable_bit = "disabled"
+  lv_ddr_mode         = "auto"
+  serial_port_aenable = "enabled"
+  terminal_type       = "vt100"
+}
 ```
 
 ### variables.tf
