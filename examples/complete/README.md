@@ -13,7 +13,7 @@ Note that this example will create resources. Resources can be destroyed with `t
 
 ### main.tf
 ```hcl
-module "m5_bios_policy" {
+module "m5_bios" {
   source  = "terraform-cisco-modules/policies-bios/intersight"
   version = ">= 1.0.1"
 
@@ -30,7 +30,7 @@ module "m5_bios_policy" {
   terminal_type       = "vt100"
 }
 
-module "m6_bios_policy" {
+module "m6_bios" {
   source  = "terraform-cisco-modules/policies-bios/intersight"
   version = ">= 1.0.1"
 
@@ -45,6 +45,19 @@ module "m6_bios_policy" {
   lv_ddr_mode         = "auto"
   serial_port_aenable = "enabled"
   terminal_type       = "vt100"
+}
+```
+
+### provider.tf
+```hcl
+terraform {
+  required_providers {
+    intersight = {
+      source  = "CiscoDevNet/intersight"
+      version = ">=1.0.32"
+    }
+  }
+  required_version = ">=1.3.0"
 }
 ```
 
@@ -66,24 +79,6 @@ variable "secretkey" {
   description = "Intersight Secret Key."
   sensitive   = true
   type        = string
-}
-```
-
-### versions.tf
-```hcl
-terraform {
-  required_providers {
-    intersight = {
-      source  = "CiscoDevNet/intersight"
-      version = ">=1.0.32"
-    }
-  }
-}
-
-provider "intersight" {
-  apikey    = var.apikey
-  endpoint  = var.endpoint
-  secretkey = var.secretkey
 }
 ```
 <!-- END_TF_DOCS -->

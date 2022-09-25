@@ -1,4 +1,4 @@
-module "m5_bios_policy" {
+module "m5_bios" {
   source  = "terraform-cisco-modules/policies-bios/intersight"
   version = ">= 1.0.1"
 
@@ -15,7 +15,7 @@ module "m5_bios_policy" {
   terminal_type       = "vt100"
 }
 
-module "m6_bios_policy" {
+module "m6_bios" {
   source  = "terraform-cisco-modules/policies-bios/intersight"
   version = ">= 1.0.1"
 
