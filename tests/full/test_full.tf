@@ -31,7 +31,7 @@ module "main" {
   bios_template = "M6_Virtualization_tpm"
   description   = "${var.name} BIOS Policy."
   name          = var.name
-  organization  = "default"
+  organization  = "terratest"
   # BIOS Customization
   baud_rate           = "115200"
   console_redirection = "serial-port-a"
