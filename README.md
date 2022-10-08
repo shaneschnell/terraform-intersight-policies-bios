@@ -127,9 +127,6 @@ export TF_VAR_secretkeyfile="<secret-key-file-location>"
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_apikey"></a> [apikey](#input\_apikey) | Intersight API Key. | `string` | n/a | yes |
-| <a name="input_endpoint"></a> [endpoint](#input\_endpoint) | Intersight URL. | `string` | `"https://intersight.com"` | no |
-| <a name="input_secretkey"></a> [secretkey](#input\_secretkey) | Intersight Secret Key. | `string` | n/a | yes |
 | <a name="input_bios_template"></a> [bios\_template](#input\_bios\_template) | Name of a BIOS Template to Configure.  Options are:<br>* DSS - Analytics Database Systems.<br>* DSS\_tpm - Analytics Database Systems with TPM Enabled.<br>* HPC - High-Performance Computing.<br>* HPC\_tpm - High-Performance Computing with TPM Enabled.<br>* Java - Java Application Servers.<br>* Java\_tpm - Java Application Servers with TPM Enabled.<br>* M6\_analytical\_DB\_tpm - M6 Analytical Database Systems with TPM Enabled.<br>* M6\_Data\_tpm - M6 Data Analytics with TPM Enabled.<br>* M6\_HPC\_tpm - High-Performance Computing with TPM Enabled.<br>* M6\_relational\_DB\_tpm - M6 Relational Database Systems with TPM Enabled.<br>* M6\_Virtualization\_tpm - Virtual Host with TPM Enabled.<br>* OLTP - Online Transaction Processing.<br>* OLTP\_tpm - Online Transaction Processing with TPM Enabled.<br>* Virtualization - Virtual Host.<br>* Virtualization\_tpm - Virtual Host with TPM Enabled. | `string` | `""` | no |
 | <a name="input_description"></a> [description](#input\_description) | Description for the policy. | `string` | `""` | no |
 | <a name="input_name"></a> [name](#input\_name) | Name for the Policy. | `string` | `"bios"` | no |
